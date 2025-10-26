@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TechCursos · Curso</title>
+  <link rel="stylesheet" href="estilos.css" />
+</head>
+<body>
+<header class="topbar">
+  <div class="nav">
+    <div class="brand"><span class="dot"></span> <a href="index.html">TechCursos</a></div>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="cursos.html">Cursos</a>
+      <a href="estudiante.html">Estudiante</a>
+      <a href="admin.html" data-admin-only>Admin</a>
+      <a href="login.html" class="btn" data-auth="guest">Login</a>
+      <a href="registro.html" class="btn primary" data-auth="guest">Registro</a>
+      <a href="#" id="logoutLink" class="btn" data-auth="user">Salir</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <div class="grid">
+    <article class="card prose">
+      <div class="muted" id="courseMeta"></div>
+      <h1 id="courseTitle"></h1>
+      <div id="courseContent"></div>
+      <div class="sep"></div>
+      <div class="row gap wrap">
+        <a class="btn primary" id="lessonLink">Ir a la lección</a>
+        <button class="btn" id="enrollBtn">Inscribirme</button>
+        <a class="btn" href="cursos.html">Volver</a>
+      </div>
+    </article>
+    <aside class="card">
+      <h3>Información</h3>
+      <ul class="list clean">
+        <li>Contenido de estudio organizado</li>
+        <li>Lección en pantalla aparte</li>
+        <li>Interfaz simple para demo</li>
+      </ul>
+    </aside>
+  </div>
+</main>
+
+<footer class="foot">© 2025 TechCursos</footer>
+<script src="script.js"></script>
+<script>initCurso();</script>
+</body>
+</html>

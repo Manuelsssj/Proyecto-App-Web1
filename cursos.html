@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TechCursos · Cursos</title>
+  <link rel="stylesheet" href="estilos.css" />
+</head>
+<body>
+<header class="topbar">
+  <div class="nav">
+    <div class="brand"><span class="dot"></span> <a href="index.html">TechCursos</a></div>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="cursos.html" class="active">Cursos</a>
+      <a href="estudiante.html">Estudiante</a>
+      <a href="admin.html" data-admin-only>Admin</a>
+      <a href="login.html" class="btn" data-auth="guest">Login</a>
+      <a href="registro.html" class="btn primary" data-auth="guest">Registro</a>
+      <a href="#" id="logoutLink" class="btn" data-auth="user">Salir</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <div class="card">
+    <h2>Cursos disponibles</h2>
+    <p class="muted">Inscríbete, estudia el contenido y realiza la lección (apruebas con 3 de 5).</p>
+  </div>
+  <div id="courseGrid" class="grid"></div>
+</main>
+
+<footer class="foot">© 2025 TechCursos</footer>
+<script src="script.js"></script>
+<script>initCursos();</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TechCursos · Registro</title>
+  <link rel="stylesheet" href="estilos.css" />
+</head>
+<body>
+<header class="topbar">
+  <div class="nav">
+    <div class="brand"><span class="dot"></span> <a href="index.html">TechCursos</a></div>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="cursos.html">Cursos</a>
+      <a href="estudiante.html">Estudiante</a>
+      <a href="admin.html" data-admin-only>Admin</a>
+      <a href="login.html" class="btn" data-auth="guest">Login</a>
+      <a href="registro.html" class="btn primary active" data-auth="guest">Registro</a>
+      <a href="#" id="logoutLink" class="btn" data-auth="user">Salir</a>
+    </nav>
+  </div>
+</header>
+
+<main class="slim">
+  <div class="card">
+    <h2>Registro</h2>
+    <form id="regForm" novalidate>
+      <label>Nombre completo</label>
+      <input name="name" required placeholder="Tu nombre" />
+      <label>Correo</label>
+      <input name="email" type="email" required placeholder="tu@email.com" />
+      <label>Contraseña</label>
+      <input name="password" type="password" required minlength="6" placeholder="mínimo 6 caracteres" />
+      <button class="btn primary block" type="submit">Crear cuenta</button>
+    </form>
+  </div>
+</main>
+
+<footer class="foot">© 2025 TechCursos</footer>
+<script src="script.js"></script>
+<script>initRegister();</script>
+</body>
+</html>

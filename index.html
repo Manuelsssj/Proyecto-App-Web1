@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TechCursos · Inicio</title>
+  <link rel="stylesheet" href="estilos.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="nav">
+      <div class="brand"><span class="dot"></span> <a href="index.html">TechCursos</a></div>
+      <nav>
+        <a href="index.html" class="active">Inicio</a>
+        <a href="cursos.html">Cursos</a>
+        <a href="estudiante.html">Estudiante</a>
+        <a href="admin.html" data-admin-only>Admin</a>
+        <a href="login.html" class="btn" data-auth="guest">Login</a>
+        <a href="registro.html" class="btn primary" data-auth="guest">Registro</a>
+        <a href="#" id="logoutLink" class="btn" data-auth="user">Salir</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="grid hero">
+      <div class="card">
+        <h1>Aprende tecnología con cursos prácticos</h1>
+        <p>Plataforma básica para presentar interfaces de <b>inicio</b>, <b>estudiante</b> y <b>administrador</b>. Explora el catálogo, revisa el contenido y responde la lección.</p>
+        <div class="row gap">
+          <a class="btn primary" href="cursos.html">Ver cursos</a>
+          <a class="btn" href="estudiante.html">Ir a Estudiante</a>
+        </div>
+        <div class="muted mt">Incluye: 5 cursos, inscripción, lección de 5 preguntas (apruebas con 3) y panel de estudiante con estados ✅.</div>
+      </div>
+      <div class="card">
+        <h2>¿Qué verás aquí?</h2>
+        <ul class="list">
+          <li>Catálogo de cursos y detalle del contenido.</li>
+          <li>Inscripción simulada y lecciones con corrección.</li>
+          <li>Panel de <b>Estudiante</b>: Inscritos, Pendientes y <b>Aprobados</b> ✅.</li>
+          <li>Panel <b>Admin</b> para crear/editar/eliminar cursos.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">© <span id="year">2025</span> TechCursos</footer>
+  <script src="script.js"></script>
+  <script>initIndex();</script>
+</body>
+</html>
