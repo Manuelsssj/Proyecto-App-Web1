@@ -26,26 +26,21 @@
   <div class="card">
     <h2>Panel de Administración (demo)</h2>
 
-    <!-- KPIs básicos -->
     <div class="grid kpis">
-      <div class="card kpi"><div class="kpi-num" id="kpiInscritos">0</div><div class="kpi-label">Inscritos</div></div>
-      <div class="card kpi"><div class="kpi-num" id="kpiAprobados">0</div><div class="kpi-label">Aprobados</div></div>
+      <div class="card kpi"><div class="kpi-num" id="kpiInscritos">0</div><div class="kpi-label">Total Inscritos</div></div>
+      <div class="card kpi"><div class="kpi-num" id="kpiAprobados">0</div><div class="kpi-label">Cursos Aprobados</div></div>
       <div class="card kpi"><div class="kpi-num" id="kpiPendientes">0</div><div class="kpi-label">Pendientes</div></div>
     </div>
   </div>
 
-  <!-- Gestión básica de cursos -->
-  <section class="grid">
-    <article class="card" style="grid-column:1/-1">
-      <h3>Gestión de cursos</h3>
-      <p class="muted">Crea, edita o elimina cursos. (Solo front, guardado en tu navegador).</p>
-
-      <!-- Formulario -->
-      <form id="courseForm" class="mb" novalidate>
+  <section class="grid" style="grid-template-columns: 2fr 1fr;">
+    <article class="card">
+      <h3>Crear/Editar Curso</h3>
+      <form id="courseForm" novalidate>
         <input type="hidden" name="id" />
-        <label>Título</label>
-        <input name="title" required placeholder="Ej.: Fundamentos de X" />
-        <label>Meta (nivel · duración)</label>
+        <label>Título del Curso</label>
+        <input name="title" required placeholder="Ej: Fundamentos de Programación" />
+        <label>Meta (Ej: Nivel · Duración)</label>
         <input name="meta" placeholder="Nivel inicial · ~10h" required />
         <label>Descripción breve</label>
         <input name="desc" required placeholder="Resumen del curso" />
@@ -58,7 +53,6 @@
         <p class="muted mt">* La lección para cursos nuevos trae 5 preguntas de ejemplo.</p>
       </form>
 
-      <!-- Tabla -->
       <div class="mb">
         <h4>Listado</h4>
         <table class="table" id="courseTable">
@@ -70,7 +64,6 @@
       </div>
     </article>
 
-    <!-- Tabla demo (la original) -->
     <article class="card" style="grid-column:1/-1">
       <h3>Inscripciones (tabla de ejemplo)</h3>
       <table class="table" id="admTable">
@@ -83,8 +76,9 @@
   </section>
 </main>
 
-<footer class="foot">© 2025 TechCursos</footer>
+<footer class="foot">
+  TechCursos &copy; <span id="year">2023</span> - Demo de interfaz.
+</footer>
 <script src="script.js"></script>
-<script>initAdmin();</script>
 </body>
 </html>

@@ -233,16 +233,21 @@ function initLogin(){
     const email = form.email.value.trim();
     const pass  = form.password.value.trim();
 
-    if(!isValidEmail(email)){ alert("Ingresa un correo válido."); return; }
-    if(pass.length < 6){ alert("La contraseña debe tener al menos 6 caracteres."); return; }
-
+    // 1. PRIMERO: Verificar si es el administrador de prueba
     if(email === 'admin@tech' && pass === 'admin123'){
       setUser({email, name:'Admin', role:'admin'});
       alert('Sesión iniciada como ADMIN');
-    }else{
-      setUser({email, name: email.split('@')[0] || 'Alumno', role:'student'});
-      alert('Sesión iniciada');
+      location.href = 'cursos.html';
+      return;
     }
+
+    // 2. SEGUNDO: Validaciones para el resto de usuarios
+    if(!isValidEmail(email)){ alert("Ingresa un correo válido."); return; }
+    if(pass.length < 6){ alert("La contraseña debe tener al menos 6 caracteres."); return; }
+
+    // 3. TERCERO: Login de estudiante genérico (si no es admin)
+    setUser({email, name: email.split('@')[0] || 'Alumno', role:'student'});
+    alert('Sesión iniciada');
     location.href = 'cursos.html';
   });
 }
@@ -452,8 +457,14 @@ function nextCoursePayloadFromForm(f){
   };
 }
 function initAdmin(){
-  renderAuthUI();
-  if(!isAdmin()){ alert('Solo para administrador'); location.href='index.html'; return; }
+  // EL GUARDiÁN DE AUTORIZACIÓN: Redirige si NO es admin
+  if(!isAdmin()){ 
+    alert('Solo para administrador'); 
+    location.href='index.html'; 
+    return; 
+  }
+  
+  renderAuthUI(); // Ejecuta solo si es administrador
 
   renderKPIs();
   renderCourseTable();
@@ -506,3 +517,18 @@ function initAdmin(){
     tb.innerHTML = rows.join("");
   }
 }
+
+// Inicialización de la página
+document.addEventListener('DOMContentLoaded', () => {
+    // Detectar qué función de inicialización debe correr
+    if (document.title.includes('Inicio')) initIndex();
+    else if (document.title.includes('Login')) initLogin();
+    else if (document.title.includes('Registro')) initRegister();
+    else if (document.title.includes('Cursos')) initCursos();
+    else if (document.title.includes('Curso')) initCurso();
+    else if (document.title.includes('Lección')) initLeccion();
+    else if (document.title.includes('Estudiante')) initEstudiante();
+    else if (document.title.includes('Admin')) initAdmin();
+
+    // Lógica adicional de scripts específicos que cargan después de init (como initLogin/initRegister)
+});
